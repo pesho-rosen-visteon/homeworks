@@ -1,4 +1,7 @@
 #include<uart.h>
+#include <stdlib.h>
+
+static void Error_Handler(void);
 
 UART_HandleTypeDef UartHandle;
 static uint8_t u8ReceivedData[10];
@@ -99,4 +102,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         default:
             break;
     }
+}
+
+static void Error_Handler(void)
+{
+  while(1)
+  {
+  }
 }
