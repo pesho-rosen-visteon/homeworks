@@ -72,31 +72,43 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 }
 
+int i;
+int j = 0;
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-    int i;
-    int j=0;
     char funcType[5];
     char funcParam[5];
+	
+	Process_FuncType(&funcType);
+	Process_FuncParam(&funcParam)
+	
+    int function_type = (int)strtol(funcType, NULL, 0);
+    int function_parameter = (int)strtol(funcParam, NULL, 0);
 
-    for(i=0;i<4;i++){
+/**/
+    Process_Command(function_type);
+}
+
+private void Process_FuncType(char* funcType){
+	for(i=0;i<4;i++){
         funcType[i] = u8ReceivedData[i];
     }
+	
+	funcType[4] = '\0';
+}
 
-    funcType[5] = '\0';
-
-    for(i=6;i<10;i++){
+private void Process_FuncParam(char* funcParam){
+	for(i=6;i<10;i++){
         funcParam[j] = u8ReceivedData[i];
         j++;
     }
 
-    funcParam[5] = '\0';
+    funcParam[4] = '\0';
+}
 
-    int function_type = (int)strtol(funcType, NULL, 0);
-    int functio_parameter = (int)strtol(funcParam, NULL, 0);
-
-/**/
-    switch(function_type){
+private void Process_Command(function_type){
+	switch(function_type){
         case 1:
             break;
         default:
