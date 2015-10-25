@@ -52,3 +52,5 @@ void ChangePulse(uint16_t pulse){
 	HAL_TIM_PWM_ChangePulseWeith(&TimHandle, &sConfig, TIM_CHANNEL_1);
 	HAL_TIM_PWM_ChangePulseWeith(&TimHandle, &sConfig, TIM_CHANNEL_2);
 }
+
+void Deinit(){}

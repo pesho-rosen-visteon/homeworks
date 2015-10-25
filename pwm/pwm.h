@@ -25,3 +25,5 @@ void StartFirstChannel();
 void StartSecondChannel();
 
 void ChangePulse(uint16_t pulse);
+
+void Deinit();
